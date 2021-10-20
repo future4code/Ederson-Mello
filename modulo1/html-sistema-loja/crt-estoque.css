@@ -1,0 +1,31 @@
+header{
+    padding: 20px 0;
+}
+
+.geral{
+    width: 800px;
+    margin: 0px auto;
+    background-color: rgb(35, 67, 156);
+    text-align: center;
+}
+
+h1,p{
+    text-align: center;
+}
+
+div{
+    margin: 5px;
+    margin-bottom: 10px 5px;
+    margin-left: 10px;
+    margin-right: 8px;
+    padding: 10px 5px 8px;
+    background-color: cornsilk;
+    border: 1px slateblue blanchedalmonds;
+}
+
+.nome_da_loja{
+    margin-bottom: 10px 5px;
+    font-size: large;
+    background-color: blue;
+    border: cornsilk;
+}
