@@ -5,6 +5,7 @@ body {
     padding: 0;
     font-family: 'Poppins' sans-serif;
     color: rgb(255, 255, 255);
+  
 }
 
 /* HEADER */
@@ -28,6 +29,7 @@ body {
 h1{
     font-size: 40px;
     text-transform: uppercase;
+    
 }
 
 h2{
@@ -54,15 +56,17 @@ h2{
 
 }
 
-a:hover{
+.botoes-pagina a:hover{
     background-color: burlywood;
     text-transform: uppercase;   
+    
 }
 
 section{
     margin: 50px auto;
     width: center;
     height: center;
+
 }
 
 .rede{
@@ -71,6 +75,7 @@ section{
     float: left;
     margin-left: 20px;
     transition: all 0.4s ease-out;
+    
 }
 
 .rede:hover{
@@ -85,17 +90,4 @@ section{
     width: 40px;
 }
 
-/* .rede#instagran{
-    FAZER OUTRAS REDES SOCIAIS
-} */
 
-/* .social-midia{
-    height: 100px;
-    position: absolute;
-    right: 0;
-    top: 0%;
-    display: flex;
-    justify-content: center;
-    margin: 20px;
-        
-} */
