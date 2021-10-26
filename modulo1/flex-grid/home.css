@@ -1,0 +1,41 @@
+body{
+    margin: 0px;
+    padding: 0;
+    overflow: hidden;
+}
+
+header{
+    background: mediumvioletred;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    height: 20px;
+    line-height: 1rem;
+    
+}
+
+section{
+    background: #f2d0e0;
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: baseline, center;
+    width: 150px;
+    height: 87.5vh;
+}
+.icones{
+    text-align: right;
+    display: flex;
+    justify-content: center;
+}
+
+footer{
+    background: mediumvioletred;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    height: 20px;
+    line-height: 1rem;
+    text-align: center;
+}
