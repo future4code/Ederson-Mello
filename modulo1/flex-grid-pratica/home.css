@@ -1,0 +1,63 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.icone-de-video{
+    display: flex;
+    align-items: center;
+
+}
+.icone{
+    height: 30px;
+    width: 30px;
+    margin-right: 10px;
+}
+header{
+    display: flex;
+    background-color: #daa520;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    padding: 0 20px;
+    border: 4px solid black;
+    border-radius: 1rem;
+}
+h2{
+    color: black;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-large;
+}
+#txtBusca{
+    font-style: italic;
+    background-color: #f1e0b4;
+    font-size: 15px;
+    height: 20px;
+    width: 150px;
+}
+main{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 20px;
+    column-gap: 20px;
+    margin: 20px;
+}
+.cardPostados{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 2px 4px 5px black;
+    text-align: center;
+}
+.videoCard{
+    width: 100%;
+}
+footer{
+    color: blanchedalmond;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    height: 60px;
+}
