@@ -49,69 +49,76 @@ class Post extends React.Component {
   }
 
   onClickCurtida = () => {
-    this.setState({
-      curtido: !this.state.curtido, numeroCurtidas:this.state.numeroCurtidas + 1
-    })
-    if(this.state.numeroCurtidas >= 1){
-      this.setState({
-        curtido: false, numeroCurtidas: 0
-      })
+    let novoNumeroCurtidas;
+
+    if (this.state.curtido) {
+      novoNumeroCurtidas = this.state.numeroCurtidas - 1;
+    } else {
+      novoNumeroCurtidas = this.state.numeroCurtidas + 1;
     }
-    console.log('Curtiu!')
-  }
+
+    this.setState({
+      curtido: !this.state.curtido,
+      numeroCurtidas: novoNumeroCurtidas
+    });
+  };
 
   onClickComentario = () => {
     this.setState({
       comentando: !this.state.comentando
-    })
-  }
+    });
+  };
 
   aoEnviarComentario = () => {
     this.setState({
       comentando: false,
       numeroComentarios: this.state.numeroComentarios + 1
-    })
-  }
+    });
+  };
 
   render() {
-    let iconeCurtida
+    let iconeCurtida;
 
-    if(this.state.curtido) {
-      iconeCurtida = iconeCoracaoPreto
+    if (this.state.curtido) {
+      iconeCurtida = iconeCoracaoPreto;
     } else {
-      iconeCurtida = iconeCoracaoBranco
+      iconeCurtida = iconeCoracaoBranco;
     }
 
-    let componenteComentario
+    let componenteComentario;
 
-    if(this.state.comentando) {
-      componenteComentario = <SecaoComentario aoEnviar={this.aoEnviarComentario}/>
+    if (this.state.comentando) {
+      componenteComentario = (
+        <SecaoComentario aoEnviar={this.aoEnviarComentario} />
+      );
     }
 
-    return <PostContainer>
-      <PostHeader>
-        <UserPhoto src={this.props.fotoUsuario} alt={'Imagem do usuario'}/>
-        <p>{this.props.nomeUsuario}</p>
-      </PostHeader>
+    return (
+      <PostContainer>
+        <PostHeader>
+          <UserPhoto src={this.props.fotoUsuario} alt={"Imagem do usuario"} />
+          <p>{this.props.nomeUsuario}</p>
+        </PostHeader>
 
-      <PostPhoto src={this.props.fotoPost} alt={'Imagem do post'}/>
+        <PostPhoto src={this.props.fotoPost} alt={"Imagem do post"} />
 
-      <PostFooter>
-        <IconeComContador
-          icone={iconeCurtida}
-          onClickIcone={this.onClickCurtida}
-          valorContador={this.state.numeroCurtidas}
-        />
+        <PostFooter>
+          <IconeComContador
+            icone={iconeCurtida}
+            onClickIcone={this.onClickCurtida}
+            valorContador={this.state.numeroCurtidas}
+          />
 
-        <IconeComContador
-          icone={iconeComentario}
-          onClickIcone={this.onClickComentario}
-          valorContador={this.state.numeroComentarios}
-        />
-      </PostFooter>
-      {componenteComentario}
-    </PostContainer>
+          <IconeComContador
+            icone={iconeComentario}
+            onClickIcone={this.onClickComentario}
+            valorContador={this.state.numeroComentarios}
+          />
+        </PostFooter>
+        {componenteComentario}
+      </PostContainer>
+    );
   }
 }
 
-export default Post
+export default Post;
