@@ -1,25 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import "./styles.css";
+import Pagina1 from "./components/pagina1";
+import Pagina2 from "./components/pagina2";
+import Pagina3 from "./components/pagina3";
+import Final from "./components/final";
+
+class App extends React.Component {
+  state = {
+      pagina: 1
+  };
+
+  renderizaPagina = () => {
+    switch (this.state.pagina) {
+      case 1:
+        return <Pagina1 />;
+      case 2:
+        return <Pagina2 />;
+      case 3:
+        return <Pagina3 />;
+      case 4:
+        return <Final />;
+      default:
+        return <Final />;
+    }
+  };
+
+  proximaPagina = () => {
+    this.setState({ pagina: this.state.pagina + 1 });
+  };
+
+  render() {
+    return (
+      <div className="App">
+        {this.renderizaPagina()}
+        <br />
+        {this.state.pagina !== 4 && (
+          <button onClick={this.proximaPagina}>Próxima página</button>
+        )}
+      </div>
+    );
+  }
 }
 
-export default App;
+
+export default Apps;
