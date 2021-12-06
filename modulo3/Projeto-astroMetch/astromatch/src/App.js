@@ -54,7 +54,7 @@ const App = () => {
   const limpaPerfis = () =>{
     axios.put("https://us-central1-missao-newton.cloudfunctions.net/astroMatch/Ederson-Mello-Carver/clear")
     .then((res)=>{
-      alert("Marchs limpos!")
+      alert("Matchs limpos!")
     }).catch((err)=>{
       console.log(err.response)
     })
