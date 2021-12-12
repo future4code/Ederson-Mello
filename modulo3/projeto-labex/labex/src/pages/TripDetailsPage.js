@@ -130,7 +130,7 @@ function TripDetailsPage() {
 
         const token = localStorage.getItem('token')
 
-        axios.put (`https://us-central1-labenu-apis.cloudfunctions.net/labeX/guilherme-amaral-lovelace/trips/${params.id}/candidates/${id}/decide`, body, {
+        axios.put (`https://us-central1-labenu-apis.cloudfunctions.net/labeX/ederson-mello-carver/trips/${params.id}/candidates/${id}/decide`, body, {
 
         headers: {
 
@@ -161,7 +161,7 @@ function TripDetailsPage() {
 
         const token = localStorage.getItem('token')
 
-        axios.put (`https://us-central1-labenu-apis.cloudfunctions.net/labeX/guilherme-amaral-lovelace/trips/${params.id}/candidates/${id}/decide`, body, {
+        axios.put (`https://us-central1-labenu-apis.cloudfunctions.net/labeX/ederson-mello-carver/trips/${params.id}/candidates/${id}/decide`, body, {
 
         headers: {
 
