@@ -142,15 +142,6 @@ function CreateTripPage(props) {
             value={form.planet}
             required>
                 <option>Escolha um planeta</option>
-                <option>Mercúrio</option>
-                <option>Vênus</option>
-                <option>Terra</option>
-                <option>Marte</option>
-                <option>Jupter</option>
-                <option>Saturno</option>
-                <option>Urano</option>
-                <option>Netuno</option>
-                <option>Plutão</option>
             </Select>
 
             <Inputs 

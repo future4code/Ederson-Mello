@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import {useHistory, useParams} from "react-router-dom"
+import { useHistory, useParams } from "react-router-dom"
 import useForm from '../hooks/useForm'
 import axios from 'axios'
 
@@ -16,7 +16,7 @@ flex-direction: row;
 justify-content: center;
 `
 
-const Buttons = styled.button `
+const Buttons = styled.button`
 margin: 40px 20px ;
 padding: 15px;
 color: white;
@@ -30,14 +30,14 @@ cursor: pointer;
 }
 `
 
-const CardCandidatura = styled.form `
+const CardCandidatura = styled.form`
 display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
 `
 
-const Inputs = styled.input `
+const Inputs = styled.input`
 padding: 10px;
 margin: 15px;
 width: 400px;
@@ -53,16 +53,16 @@ border: solid 1px #7D3996;
 border-radius: 5px;
 `
 
-function ApplicationFormPage (props) {
+function ApplicationFormPage(props) {
 
-    const params = useParams() 
+    const params = useParams()
 
-    const {form, onChange, cleanFields} = useForm ({
+    const { form, onChange, cleanFields } = useForm({
 
-        name: "", 
-        age: "", 
-        applicationText: "", 
-        profession: "", 
+        name: "",
+        age: "",
+        applicationText: "",
+        profession: "",
         country: "",
         select: ""
     })
@@ -71,32 +71,32 @@ function ApplicationFormPage (props) {
 
         const body = {
 
-            name: form.name, 
-            age: form.age, 
-            applicationText: form.applicationText, 
-            profession: form.profession, 
+            name: form.name,
+            age: form.age,
+            applicationText: form.applicationText,
+            profession: form.profession,
             country: form.country
         }
 
-        axios.post (`https://us-central1-labenu-apis.cloudfunctions.net/labeX/ederson-mello-carver/trips/${form.select}/apply`, body, {
+        axios.post(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/ederson-mello-carver/trips/${form.select}/apply`, body, {
 
-        headers: {
+            headers: {
 
-            "Content-Type": "application/json"
-        }
+                "Content-Type": "application/json"
+            }
 
         })
 
-        .then ((res) => {
-            alert ('Cadastrado com sucesso')
-        })
+            .then((res) => {
+                alert('Cadastrado com sucesso')
+            })
 
-        .catch((err) => {
-            console.log (err)
-        })
+            .catch((err) => {
+                console.log(err)
+            })
 
         event.preventDefault()
-        console.log ('form enviado', form)
+        console.log('form enviado', form)
         cleanFields()
 
     }
@@ -109,17 +109,17 @@ function ApplicationFormPage (props) {
     }
 
 
-    const escolhaPlaneta = props.viagens.map ((index) => {
-        return <option value={index.id} key={index.id}>{index.planet}</option>  
+    const escolhaPlaneta = props.viagens.map((index) => {
+        return <option value={index.id} key={index.id}>{index.planet}</option>
 
-    })    
+    })
 
 
     useEffect(() => {
 
         props.getTrips()
 
-      }, [])
+    }, [])
 
     return (
 
@@ -130,50 +130,59 @@ function ApplicationFormPage (props) {
 
                 <Select name={"select"} onChange={onChange} value={form.select}>
                     <option>Escolha um Planeta</option>
+                    <option>Mercúrio</option>
+                    <option>Jupter</option>
+                    <option>Vênus</option>
+                    <option>Terra</option>
+                    <option>Marte</option>
+                    <option>Saturno</option>
+                    <option>Urano</option>
+                    <option>Netuno</option>
+                    <option>Plutão</option>
                     {escolhaPlaneta}
                 </Select>
 
                 <Inputs
-                onChange={onChange}
-                name={"name"}
-                value={form.name} 
-                type="text" 
-                placeholder="Nome"
-                required
-                pattern={"^.{5,}"}
-                title={"O nome deve ter no mínimo 5 letras"}
-                />
-
-                <Inputs 
-                onChange={onChange}
-                name={"age"}
-                value={form.age}
-                type="number" 
-                placeholder="Idade"
-                required
-                min={18}
-                />
-
-                <Inputs 
-                onChange={onChange}
-                name={"applicationText"}
-                value={form.applicationText}
-                type="text"
-                placeholder="Texto da candidatura"
-                required
-                pattern={"^.{30,}"}
-                title={"Preencha no mínimo 30 caracteres"}
+                    onChange={onChange}
+                    name={"name"}
+                    value={form.name}
+                    type="text"
+                    placeholder="Nome"
+                    required
+                    pattern={"^.{5,}"}
+                    title={"O nome deve ter no mínimo 5 letras"}
                 />
 
                 <Inputs
-                onChange={onChange}
-                name={"profession"}
-                value={form.profession}
-                type="text" 
-                placeholder="Profissão" 
-                required
-                pattern={"^.{10,}"}
-                title={"Preencha no mínimo 10 caracteres"}
+                    onChange={onChange}
+                    name={"age"}
+                    value={form.age}
+                    type="number"
+                    placeholder="Idade"
+                    required
+                    min={18}
+                />
+
+                <Inputs
+                    onChange={onChange}
+                    name={"applicationText"}
+                    value={form.applicationText}
+                    type="text"
+                    placeholder="Texto da candidatura"
+                    required
+                    pattern={"^.{30,}"}
+                    title={"Preencha no mínimo 30 caracteres"}
+                />
+
+                <Inputs
+                    onChange={onChange}
+                    name={"profession"}
+                    value={form.profession}
+                    type="text"
+                    placeholder="Profissão"
+                    required
+                    pattern={"^.{10,}"}
+                    title={"Preencha no mínimo 10 caracteres"}
                 />
 
                 <Select onChange={onChange}
@@ -181,8 +190,12 @@ function ApplicationFormPage (props) {
                     value={form.country}>
                     <option>Escolha um País</option>
                     <option>Brasil</option>
-                    <option>Argentina</option>
+                    <option>Uruguai</option>
+                    <option>Estados Unidos</option>
+
                 </Select>
+
+
 
                 <Buttons>Enviar</Buttons>
 

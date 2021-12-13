@@ -46,7 +46,7 @@ border-radius: 5px;
 function LoginPage() {
 
     const [email, setEmail] = useState()
-    const [senha,setSenha] = useState()
+    const [password,setSenha] = useState()
 
     const history = useHistory()
 
@@ -66,7 +66,7 @@ function LoginPage() {
 
         const body = {
             email: email,
-            password: senha
+            password: password
         }
 
         axios.post ('https://us-central1-labenu-apis.cloudfunctions.net/labeX/ederson-mello-carver/login', body)
@@ -98,12 +98,12 @@ function LoginPage() {
 
                 <Inputs type="password" 
                 onChange={onChangeInputSenha} 
-                value={senha} 
+                value={password} 
                 placeholder="Senha"
                 required 
                 />
 
-            <Buttons>Enviar</Buttons>
+            <Buttons>Entrar</Buttons>
 
             </CardLogin>
 
